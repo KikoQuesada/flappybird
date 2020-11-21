@@ -9,7 +9,21 @@ class FlappyBird {
 
     this.sprite = new Image();
     this.sprite.src = 'assets/img/bird.png';
-    // sprite setup
+    this.sprite.isReady = false;
+    this.sprite.horizontalFrames = 3;
+    this.sprite.verticalFrames = 1;
+    this.sprite.horizontalFrameIndex = 0;
+    this.sprite.verticalFrameIndex = 0;
+   
+    this.sprite.onload = () => {
+    this.sprite.isReady = true;
+    this.sprite.frameWidth = Math.floor(this.sprite.width / this.sprite.horizontalFrames);
+    
+    //this.width = this.sprite.frameWidth;
+    //this.height = this.sprite.height;  
+  }
+
+    
 
     this.drawCount = 0;
     this.movements = {
