@@ -9,7 +9,7 @@ class Game {
     this.drawIntervalId = undefined;
     this.fps = 1000 / 60;
 
-    // iteration 1: setup the backgound
+    this.background = new Background(this.ctx); 
 
     // iteration 2: setup the flappy
 
@@ -39,7 +39,6 @@ class Game {
   }
 
   stop() {
-    // Iteration 1: stop the game
     clearInterval(this.drawIntervalId);
     this.drawIntervalId = undefined;
   }
@@ -53,11 +52,11 @@ class Game {
   }
 
   clear() {
-    // Iteration 1: clean the screen
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
 
   move() {
-    // Iteration 1: move the background
+    this.background.move();
     // Iteration 2: move the flappy
     // Iteration 3: move the pipes
   }
@@ -79,7 +78,7 @@ class Game {
   }
 
   draw() {
-    // Iteration 1: draw the background
+    this.background.draw();
     // Iteration 2: draw the flappy
     // Iteration 2: draw the pipes
     // Bonus: draw the score
