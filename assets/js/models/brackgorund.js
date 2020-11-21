@@ -4,6 +4,7 @@ class Background {
     this.ctx = ctx;
     this.x = 0;
     this.y = 0;
+    this.footerY = 400;
     this.img = new Image();
       this.img.src = './images/gb.png'
       this.img.isReady = false;
@@ -26,7 +27,7 @@ class Background {
     this.footerImg.onload = () => {
       this.footerImg.isReady = true;
       this.footerImg.width = this.ctx.canvas.width;
-      this.footerImg.height = this.ctx.canvas.height;
+      this.footerImg.height = this.ctx.footerY;
   }
 }
 

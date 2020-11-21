@@ -29,10 +29,19 @@ class Game {
 
   start() {
     // Iteration 1: each 60f clear - move - draw - [next iterations: addPipes - checkCollisions - checkScore]
+    if (!this.drawIntervalId) {
+      this.drawIntervalId = setInterval(() => {
+        this.clear();
+        this.move();
+        this.draw();
+      }, this.fps)
+    }
   }
 
   stop() {
     // Iteration 1: stop the game
+    clearInterval(this.drawIntervalId);
+    this.drawIntervalId = undefined;
   }
 
   restart() {
